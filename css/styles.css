@@ -1,0 +1,401 @@
+/**
+ * ===================================================================================
+ * HOJA DE ESTILOS PARA PASTELERIA SOFI
+ * Autor: [Tu Nombre]
+ * Versión: 1.0
+ * Descripción: Estilos personalizados para la página de la pastelería, utilizando
+ *              un tema oscuro con acentos dorados.
+ * ===================================================================================
+ */
+
+/**
+ * -----------------------------------------------------------------------------------
+ * 1. CONFIGURACIÓN GENERAL Y MEJORAS DE EXPERIENCIA
+ * -----------------------------------------------------------------------------------
+ * Incluye el estilo base del body, configuración de fuentes y mejoras como
+ * el scroll suave y el anclaje correcto de la barra de navegación.
+ */
+
+/* Mejora la navegación con anclas (ej: href="#productos") al usar una navbar fija */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Activa el desplazamiento suave al hacer clic en los enlaces de ancla */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos base para toda la página */
+body {
+  background-color: #1c1c1e;
+  color: #f8f9fa; /* Color de texto principal (blanco roto) */
+  font-family: 'Raleway', sans-serif; /* Fuente principal para párrafos y texto general */
+}
+
+
+/**
+ * -----------------------------------------------------------------------------------
+ * 2. COMPONENTES PRINCIPALES DE LAYOUT
+ * -----------------------------------------------------------------------------------
+ * Estilos para las secciones estructurales de la página como el Header,
+ * la Barra de Navegación (Navbar) y el Pie de página (Footer).
+ */
+
+/* Estilo común para el encabezado superior y el pie de página */
+.header, .footer {
+  background-color: #2a2a2e;
+  color: #a0a0a0; /* Color de texto secundario (gris claro) */
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #444;
+}
+
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid #444;
+  border-bottom: none;
+}
+
+/* Estilo para los enlaces e iconos de redes sociales en header/footer */
+.header a, .footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header a:hover, .footer a:hover {
+  color: #fff;
+}
+
+.footer .social-icon, .header .social-icon {
+  font-size: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer .social-icon:hover, .header .social-icon:hover {
+  transform: scale(1.2); /* Efecto de crecimiento al pasar el ratón */
+}
+
+/* Estilos para la barra de navegación principal */
+.navbar {
+  background-color: #1c1c1e;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444444;
+}
+
+/* Estilo del logo principal ("Pasteleria Sofi") */
+.navbar-brand {
+  font-family: 'Great Vibes', cursive; /* Fuente elegante y decorativa */
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: normal;
+}
+
+/* Estilo de los enlaces de navegación (Promociones, Productos, etc.) */
+.nav-link {
+  color: #f8f9fa;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Línea animada que aparece debajo del enlace al pasar el ratón */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link:focus::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Estilo del botón "hamburguesa" para el menú en móviles */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/**
+ * -----------------------------------------------------------------------------------
+ * 3. COMPONENTES DE CONTENIDO ESPECÍFICOS
+ * -----------------------------------------------------------------------------------
+ * Estilos para elementos únicos de la página como el carrusel de promociones,
+ * la barra lateral de categorías y las tarjetas de productos.
+ */
+
+/* Contenedor de cada diapositiva del carrusel */
+.carousel-item-fixed {
+  height: 70vh;
+  min-height: 450px;
+}
+
+/* Ajuste de las imágenes del carrusel para que cubran el espacio sin deformarse */
+.carousel-item-fixed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita que la imagen se estire o encoja */
+  object-position: center;
+  opacity: 0.5; /* Oscurece la imagen para que el texto resalte */
+}
+
+/* Estilo del título principal en el carrusel */
+.carousel-caption h5 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 7vw, 5.5rem); /* Tamaño de fuente adaptable */
+  font-weight: normal;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+}
+
+/* Estilo del párrafo descriptivo en el carrusel */
+.carousel-caption p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+/* Títulos principales de cada sección ("Nuestros Productos", "Sugiere un Postre") */
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    color: #fff;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    letter-spacing: normal;
+}
+
+/* Estilos para los items de la barra lateral de categorías */
+.list-group-item {
+  background-color: #2a2a2e;
+  border: 1px solid #444444;
+  color: #f8f9fa;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.list-group-item i {
+    font-size: 1.2rem;
+}
+
+/* Estilo para el item de categoría que está activo (seleccionado) */
+.list-group-item.active {
+  background-color: #585a5e;
+  border-color: #585a5e;
+  color: #fff;
+  font-weight: 600;
+}
+
+.list-group-item:hover {
+    background-color: #3a3a3e;
+    padding-left: 1.5rem; /* Efecto de desplazamiento al pasar el ratón */
+}
+
+/* Contenedor de cada tarjeta de producto */
+.card {
+  background-color: #2a2a2e;
+  border: 1px solid #444444;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px); /* Eleva la tarjeta al pasar el ratón */
+  box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+}
+
+/* Ajuste de las imágenes de los productos para que todas tengan el mismo tamaño */
+.card .card-img-top {
+  height: 150px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05); /* Efecto de zoom en la imagen */
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif; /* Fuente serif para un look más clásico */
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.card-price {
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+
+/**
+ * -----------------------------------------------------------------------------------
+ * 4. ESTILOS DE FORMULARIO Y BOTONES
+ * -----------------------------------------------------------------------------------
+ * Estilos para todos los elementos interactivos como el contenedor del formulario,
+ * los campos de texto, los radio buttons y el botón de envío.
+ */
+
+/* Contenedor principal del formulario de sugerencias */
+.form-wrapper {
+  background-color: #2a2a2e;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #444;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+/* Estilo base para los campos de texto y áreas de texto */
+.form-control {
+    background-color: #333;
+    border-color: #555;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== SOLUCIÓN: Efecto de Foco para los campos de texto ===== */
+/* Resplandor dorado al hacer clic en un campo de texto */
+.form-control:focus {
+    background-color: #333;
+    border-color: #D4AF37; /* Borde se vuelve dorado */
+    color: #fff;
+    /* Resplandor dorado con transparencia */
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.35);
+}
+
+/* Estilo para el texto de ayuda debajo de los campos */
+.form-text {
+  color: #a0a0a0;
+}
+
+/* ===== SOLUCIÓN DEFINITIVA: Estilos para los Radio Buttons ===== */
+
+/* Estilo BASE para los radio buttons (cuando NO están seleccionados) */
+.form-check-input {
+    background-color: #333;
+    border-color: #555;
+    background-image: none !important; /* IMPORTANTE: Elimina el SVG por defecto de Bootstrap */
+}
+
+/* Estilo para el radio button cuando está SELECCIONADO */
+.form-check-input:checked {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+    /* Creamos nuestro propio círculo interior blanco con un gradiente radial */
+    background-image: radial-gradient(circle, white 40%, transparent 45%);
+}
+
+/* Estilo para el "resplandor" al hacer clic o navegar con el teclado */
+.form-check-input:focus {
+    border-color: #D4AF37;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.35);
+}
+
+/* Estilo para el texto "Sí" y "No" al lado de los radio buttons */
+.form-check-label {
+    color: #f8f9fa;
+}
+
+
+/* Estilo principal para los botones de acción (Agregar, Enviar Sugerencia) */
+.btn-primary {
+    background: linear-gradient(to bottom, #E6C37A, #D4AF37);
+    border-color: #D4AF37;
+    color: #1c1c1e;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Efecto al pasar el ratón sobre los botones */
+.btn-primary:hover, .btn-primary:focus {
+    background: linear-gradient(to bottom, #D4AF37, #B89B31);
+    border-color: #B89B31;
+    color: #FFFFFF; /* Texto se vuelve blanco */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
+/**
+ * -----------------------------------------------------------------------------------
+ * 5. ANIMACIONES Y EFECTOS ADICIONALES
+ * -----------------------------------------------------------------------------------
+ * Estilos para efectos visuales como la animación de filtrado de productos.
+ */
+
+/* Transición suave para ocultar y mostrar productos al filtrar */
+.product-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.product-item.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+}
+
+
+/**
+ * ===================================================================================
+ * 6. ESTILOS PERSONALIZADOS PARA LA BARRA DE DESPLAZAMIENTO (SCROLLBAR)
+ * ===================================================================================
+ * Reemplaza el scrollbar por defecto del navegador por uno que se integra con
+ * el tema oscuro y los acentos dorados de la página.
+ */
+
+/* ===== Para Firefox ===== */
+html {
+  scrollbar-width: thin; /* Opciones: 'auto', 'thin', 'none' */
+  scrollbar-color: #D4AF37 #2a2a2e; /* Color del mango y color del riel */
+}
+
+/* ===== Para navegadores WebKit (Chrome, Safari, Edge, etc.) ===== */
+
+/* Define el ancho y el color de fondo general de la barra */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #1c1c1e; /* Color de fondo de la página */
+}
+
+/* El riel por donde se desliza el mango */
+::-webkit-scrollbar-track {
+  background: #2a2a2e; /* Un gris oscuro, como el de las tarjetas */
+  border-radius: 10px;
+}
+
+/* El "mango" de la barra, la parte que se arrastra */
+::-webkit-scrollbar-thumb {
+  background-color: #D4AF37; /* El color dorado principal */
+  border-radius: 10px;
+  border: 2px solid #2a2a2e; /* Un borde sutil para darle definición */
+}
+
+/* Efecto al pasar el ratón sobre el mango de la barra */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #E6C37A; /* El dorado se vuelve más brillante */
+  border-color: #333;
+}
