@@ -2,13 +2,9 @@
  * @file form-validation.js
  * @description Gestiona la validación en tiempo real del formulario de sugerencias.
  * @author Ana Sofia Arango Yanza
- * @version 1.0
  */
 
-// Se ejecuta cuando el contenido del DOM ha sido completamente cargado y parseado.
 document.addEventListener('DOMContentLoaded', function () {
-
-  // --- CÓDIGO DE VALIDACIÓN DEL FORMULARIO DE SUGERENCIAS ---
 
   // Selección de los elementos del DOM necesarios para la validación.
   const form = document.getElementById('suggestionForm'); // El formulario completo.
@@ -47,23 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
         // 'some' comprueba si al menos un elemento del array cumple la condición.
         const isChecked = Array.from(categoryRadios).some(radio => radio.checked);
         if (!isChecked) {
-          categoryError.textContent = 'Por favor, selecciona una opción.'; // Muestra mensaje de error.
+          categoryError.textContent = 'Por favor, selecciona una opción.'; 
           return false;
         } else {
-          categoryError.textContent = ''; // Limpia el mensaje de error.
+          categoryError.textContent = ''; 
           return true;
         }
       };
 
       // --- Asignación de Event Listeners para validación en tiempo real ---
-      // Requisito: Validaciones se activan al cambiar el foco (evento 'blur').
       
       productName.addEventListener('blur', () => validateTextField(productName));
       productDescription.addEventListener('blur', () => validateTextField(productDescription));
       categoryRadios.forEach(radio => radio.addEventListener('change', () => validateCategory()));
 
       // --- Manejo del Envío del Formulario ---
-      // Requisito: Validaciones se activan al dar click en el botón registrar (evento 'submit').
       form.addEventListener('submit', function (event) {
         
         // Previene el envío real del formulario, que recargaría la página.

@@ -1,10 +1,7 @@
 /**
  * ===================================================================================
  * HOJA DE ESTILOS PARA PASTELERIA SOFI
- * Autor: [Tu Nombre]
- * Versión: 1.0
- * Descripción: Estilos personalizados para la página de la pastelería, utilizando
- *              un tema oscuro con acentos dorados.
+ * Autor: Ana Sofia Arango Yanza
  * ===================================================================================
  */
 
@@ -12,8 +9,6 @@
  * -----------------------------------------------------------------------------------
  * 1. CONFIGURACIÓN GENERAL Y MEJORAS DE EXPERIENCIA
  * -----------------------------------------------------------------------------------
- * Incluye el estilo base del body, configuración de fuentes y mejoras como
- * el scroll suave y el anclaje correcto de la barra de navegación.
  */
 
 /* Mejora la navegación con anclas (ej: href="#productos") al usar una navbar fija */
@@ -203,7 +198,6 @@ body {
 /* Contenedor de cada tarjeta de producto */
 .card {
   background-color: #2a2a2e;
-  border: 1px solid #444444;
   border-radius: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -281,8 +275,6 @@ body {
   color: #a0a0a0;
 }
 
-/* ===== SOLUCIÓN DEFINITIVA: Estilos para los Radio Buttons ===== */
-
 /* Estilo BASE para los radio buttons (cuando NO están seleccionados) */
 .form-check-input {
     background-color: #333;
@@ -310,7 +302,6 @@ body {
     color: #f8f9fa;
 }
 
-
 /* Estilo principal para los botones de acción (Agregar, Enviar Sugerencia) */
 .btn-primary {
     background: linear-gradient(to bottom, #E6C37A, #D4AF37);
@@ -329,7 +320,6 @@ body {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 
 /**
  * -----------------------------------------------------------------------------------
@@ -358,10 +348,29 @@ body {
     border: 0;
 }
 
+/**
+ * ===================================================================================
+ * 6. AJUSTES RESPONSIVOS ESPECÍFICOS
+ * ===================================================================================
+ * Media queries para corregir o mejorar la visualización en tamaños de
+ * pantalla específicos.
+ */
+
+/*
+ * Reduce el tamaño del título "Categorías" en la vista de tableta pequeña (sm)
+ * para evitar que el texto se corte cuando la barra lateral es muy estrecha.
+ * Hace que se vea mucho mejor y no cortada.
+ */
+@media (min-width: 576px) and (max-width: 777.98px) {
+  #productos aside h4 {
+    font-size: 1.1rem; /* Reducimos ligeramente el tamaño del H4 por defecto */
+  }
+}
+
 
 /**
  * ===================================================================================
- * 6. ESTILOS PERSONALIZADOS PARA LA BARRA DE DESPLAZAMIENTO (SCROLLBAR)
+ * 7. ESTILOS PERSONALIZADOS PARA LA BARRA DE DESPLAZAMIENTO (SCROLLBAR)
  * ===================================================================================
  * Reemplaza el scrollbar por defecto del navegador por uno que se integra con
  * el tema oscuro y los acentos dorados de la página.
